@@ -107,9 +107,9 @@ char MyString::charAt(int index) const {
     // TODO: Return character at given index
     // Throw std::out_of_range if index is invalid (negative or >= length)
       if (index < 0 || index >= static_cast<int>(data.length())) {
-        throw std::out_of_range("Index out of range in charAt");
+        throw std::out_of_range("Index out of range in charAt"); }
     return data[index] ;
-}
+ }
 
 MyString MyString::substring(int start, int len) const {
     // TODO: Return a substring starting at 'start' with length 'len'
@@ -118,7 +118,7 @@ MyString MyString::substring(int start, int len) const {
     if(start < 0 || start >= static_cast<int>(data.length())){
         throw out_of_range("Index out of range in substring");
     }
-    return MyStirng(data.substr(start, len));
+    return MyString(data.substr(start, len));
 }
 
 // ---- String Manipulation ----
@@ -148,9 +148,9 @@ MyString MyString::trim() const {
     // Whitespace includes: space, tab (\t), newline (\n), carriage return (\r)
     // Hint: Use find_first_not_of and find_last_not_of
     size_t start = data.find_first_not_of(" \t\n\r");
-    if (start == string::npos)return -1;
+    if (start == string::npos)return MyString("");
     size_t end = data.find_last_not_of(" \t\n\r");
-    return MyString(data.substr(data.substr(start, end-start+1));
+    return MyString(data.substr(start, end-start+1));
     
 }
 
@@ -179,7 +179,8 @@ int MyString::count(char ch) const {
        if (c == ch){
            cnt++;
        }
-    }
+    } 
+     return cnt;
 }
 
 // ---- Function Overloading: append ----
